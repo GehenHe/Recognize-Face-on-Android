@@ -1,0 +1,1 @@
+Recog_Face will detect faces with Android SDK , then it Extract features with tensoflow NDK , and return the faces' ID.
