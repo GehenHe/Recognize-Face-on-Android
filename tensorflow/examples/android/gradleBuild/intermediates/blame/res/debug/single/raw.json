@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/home/gehen/tensorflow/tensorflow/examples/android/gradleBuild/intermediates/res/merged/debug/raw/gtm_analytics",
+        "source": "/home/gehen/tensorflow/tensorflow/examples/android/gradleBuild/intermediates/exploded-aar/com.google.android.gms/play-services-analytics/7.8.0/res/raw/gtm_analytics"
+    },
+    {
+        "merged": "/home/gehen/tensorflow/tensorflow/examples/android/gradleBuild/intermediates/res/merged/debug/raw/face.jpg",
+        "source": "/home/gehen/tensorflow/tensorflow/examples/android/res/raw/face.jpg"
+    }
+]

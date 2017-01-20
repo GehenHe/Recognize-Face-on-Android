@@ -1,0 +1,90 @@
+[
+    {
+        "merged": "/home/gehen/tensorflow/tensorflow/examples/Recog_Face/app/gradleBuild/intermediates/res/merged/debug/drawable-hdpi/common_signin_btn_text_normal_dark.9.png",
+        "source": "/home/gehen/tensorflow/tensorflow/examples/Recog_Face/app/gradleBuild/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.1.0/res/drawable-hdpi/common_signin_btn_text_normal_dark.9.png"
+    },
+    {
+        "merged": "/home/gehen/tensorflow/tensorflow/examples/Recog_Face/app/gradleBuild/intermediates/res/merged/debug/drawable-hdpi/common_signin_btn_icon_normal_light.9.png",
+        "source": "/home/gehen/tensorflow/tensorflow/examples/Recog_Face/app/gradleBuild/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.1.0/res/drawable-hdpi/common_signin_btn_icon_normal_light.9.png"
+    },
+    {
+        "merged": "/home/gehen/tensorflow/tensorflow/examples/Recog_Face/app/gradleBuild/intermediates/res/merged/debug/drawable-hdpi/common_full_open_on_phone.png",
+        "source": "/home/gehen/tensorflow/tensorflow/examples/Recog_Face/app/gradleBuild/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.1.0/res/drawable-hdpi/common_full_open_on_phone.png"
+    },
+    {
+        "merged": "/home/gehen/tensorflow/tensorflow/examples/Recog_Face/app/gradleBuild/intermediates/res/merged/debug/drawable-hdpi/common_signin_btn_text_pressed_light.9.png",
+        "source": "/home/gehen/tensorflow/tensorflow/examples/Recog_Face/app/gradleBuild/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.1.0/res/drawable-hdpi/common_signin_btn_text_pressed_light.9.png"
+    },
+    {
+        "merged": "/home/gehen/tensorflow/tensorflow/examples/Recog_Face/app/gradleBuild/intermediates/res/merged/debug/drawable-hdpi/common_signin_btn_icon_disabled_light.9.png",
+        "source": "/home/gehen/tensorflow/tensorflow/examples/Recog_Face/app/gradleBuild/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.1.0/res/drawable-hdpi/common_signin_btn_icon_disabled_light.9.png"
+    },
+    {
+        "merged": "/home/gehen/tensorflow/tensorflow/examples/Recog_Face/app/gradleBuild/intermediates/res/merged/debug/drawable-hdpi/common_signin_btn_text_focus_dark.9.png",
+        "source": "/home/gehen/tensorflow/tensorflow/examples/Recog_Face/app/gradleBuild/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.1.0/res/drawable-hdpi/common_signin_btn_text_focus_dark.9.png"
+    },
+    {
+        "merged": "/home/gehen/tensorflow/tensorflow/examples/Recog_Face/app/gradleBuild/intermediates/res/merged/debug/drawable-hdpi/common_signin_btn_icon_focus_light.9.png",
+        "source": "/home/gehen/tensorflow/tensorflow/examples/Recog_Face/app/gradleBuild/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.1.0/res/drawable-hdpi/common_signin_btn_icon_focus_light.9.png"
+    },
+    {
+        "merged": "/home/gehen/tensorflow/tensorflow/examples/Recog_Face/app/gradleBuild/intermediates/res/merged/debug/drawable-hdpi/common_signin_btn_text_disabled_dark.9.png",
+        "source": "/home/gehen/tensorflow/tensorflow/examples/Recog_Face/app/gradleBuild/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.1.0/res/drawable-hdpi/common_signin_btn_text_disabled_dark.9.png"
+    },
+    {
+        "merged": "/home/gehen/tensorflow/tensorflow/examples/Recog_Face/app/gradleBuild/intermediates/res/merged/debug/drawable-hdpi/common_signin_btn_text_focus_light.9.png",
+        "source": "/home/gehen/tensorflow/tensorflow/examples/Recog_Face/app/gradleBuild/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.1.0/res/drawable-hdpi/common_signin_btn_text_focus_light.9.png"
+    },
+    {
+        "merged": "/home/gehen/tensorflow/tensorflow/examples/Recog_Face/app/gradleBuild/intermediates/res/merged/debug/drawable-hdpi/common_signin_btn_text_disabled_focus_light.9.png",
+        "source": "/home/gehen/tensorflow/tensorflow/examples/Recog_Face/app/gradleBuild/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.1.0/res/drawable-hdpi/common_signin_btn_text_disabled_focus_light.9.png"
+    },
+    {
+        "merged": "/home/gehen/tensorflow/tensorflow/examples/Recog_Face/app/gradleBuild/intermediates/res/merged/debug/drawable-hdpi/common_signin_btn_text_normal_light.9.png",
+        "source": "/home/gehen/tensorflow/tensorflow/examples/Recog_Face/app/gradleBuild/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.1.0/res/drawable-hdpi/common_signin_btn_text_normal_light.9.png"
+    },
+    {
+        "merged": "/home/gehen/tensorflow/tensorflow/examples/Recog_Face/app/gradleBuild/intermediates/res/merged/debug/drawable-hdpi/common_signin_btn_icon_disabled_focus_light.9.png",
+        "source": "/home/gehen/tensorflow/tensorflow/examples/Recog_Face/app/gradleBuild/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.1.0/res/drawable-hdpi/common_signin_btn_icon_disabled_focus_light.9.png"
+    },
+    {
+        "merged": "/home/gehen/tensorflow/tensorflow/examples/Recog_Face/app/gradleBuild/intermediates/res/merged/debug/drawable-hdpi/common_signin_btn_text_pressed_dark.9.png",
+        "source": "/home/gehen/tensorflow/tensorflow/examples/Recog_Face/app/gradleBuild/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.1.0/res/drawable-hdpi/common_signin_btn_text_pressed_dark.9.png"
+    },
+    {
+        "merged": "/home/gehen/tensorflow/tensorflow/examples/Recog_Face/app/gradleBuild/intermediates/res/merged/debug/drawable-hdpi/common_signin_btn_text_disabled_focus_dark.9.png",
+        "source": "/home/gehen/tensorflow/tensorflow/examples/Recog_Face/app/gradleBuild/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.1.0/res/drawable-hdpi/common_signin_btn_text_disabled_focus_dark.9.png"
+    },
+    {
+        "merged": "/home/gehen/tensorflow/tensorflow/examples/Recog_Face/app/gradleBuild/intermediates/res/merged/debug/drawable-hdpi/common_signin_btn_icon_normal_dark.9.png",
+        "source": "/home/gehen/tensorflow/tensorflow/examples/Recog_Face/app/gradleBuild/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.1.0/res/drawable-hdpi/common_signin_btn_icon_normal_dark.9.png"
+    },
+    {
+        "merged": "/home/gehen/tensorflow/tensorflow/examples/Recog_Face/app/gradleBuild/intermediates/res/merged/debug/drawable-hdpi/common_signin_btn_icon_disabled_dark.9.png",
+        "source": "/home/gehen/tensorflow/tensorflow/examples/Recog_Face/app/gradleBuild/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.1.0/res/drawable-hdpi/common_signin_btn_icon_disabled_dark.9.png"
+    },
+    {
+        "merged": "/home/gehen/tensorflow/tensorflow/examples/Recog_Face/app/gradleBuild/intermediates/res/merged/debug/drawable-hdpi/common_signin_btn_text_disabled_light.9.png",
+        "source": "/home/gehen/tensorflow/tensorflow/examples/Recog_Face/app/gradleBuild/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.1.0/res/drawable-hdpi/common_signin_btn_text_disabled_light.9.png"
+    },
+    {
+        "merged": "/home/gehen/tensorflow/tensorflow/examples/Recog_Face/app/gradleBuild/intermediates/res/merged/debug/drawable-hdpi/common_signin_btn_icon_pressed_light.9.png",
+        "source": "/home/gehen/tensorflow/tensorflow/examples/Recog_Face/app/gradleBuild/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.1.0/res/drawable-hdpi/common_signin_btn_icon_pressed_light.9.png"
+    },
+    {
+        "merged": "/home/gehen/tensorflow/tensorflow/examples/Recog_Face/app/gradleBuild/intermediates/res/merged/debug/drawable-hdpi/common_signin_btn_icon_disabled_focus_dark.9.png",
+        "source": "/home/gehen/tensorflow/tensorflow/examples/Recog_Face/app/gradleBuild/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.1.0/res/drawable-hdpi/common_signin_btn_icon_disabled_focus_dark.9.png"
+    },
+    {
+        "merged": "/home/gehen/tensorflow/tensorflow/examples/Recog_Face/app/gradleBuild/intermediates/res/merged/debug/drawable-hdpi/common_signin_btn_icon_pressed_dark.9.png",
+        "source": "/home/gehen/tensorflow/tensorflow/examples/Recog_Face/app/gradleBuild/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.1.0/res/drawable-hdpi/common_signin_btn_icon_pressed_dark.9.png"
+    },
+    {
+        "merged": "/home/gehen/tensorflow/tensorflow/examples/Recog_Face/app/gradleBuild/intermediates/res/merged/debug/drawable-hdpi/common_ic_googleplayservices.png",
+        "source": "/home/gehen/tensorflow/tensorflow/examples/Recog_Face/app/gradleBuild/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.1.0/res/drawable-hdpi/common_ic_googleplayservices.png"
+    },
+    {
+        "merged": "/home/gehen/tensorflow/tensorflow/examples/Recog_Face/app/gradleBuild/intermediates/res/merged/debug/drawable-hdpi/common_signin_btn_icon_focus_dark.9.png",
+        "source": "/home/gehen/tensorflow/tensorflow/examples/Recog_Face/app/gradleBuild/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.1.0/res/drawable-hdpi/common_signin_btn_icon_focus_dark.9.png"
+    }
+]
