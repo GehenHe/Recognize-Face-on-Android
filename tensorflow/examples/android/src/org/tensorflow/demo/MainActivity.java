@@ -25,7 +25,8 @@ public class MainActivity extends AppCompatActivity {
 
     private FaceOverlayView mFaceOverlayView;
     private SparseArray<Face> mFaces;
-    public Bitmap[] mCropFaces;
+    private Bitmap[] mCropFaces;
+//    private int face_num;
 
     private static final int NUM_CLASSES = 1001;
     private static final int INPUT_SIZE = 224;
@@ -40,9 +41,6 @@ public class MainActivity extends AppCompatActivity {
 
     private Classifier classifier;
 
-
-    private long lastProcessingTimeMs;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,13 +51,10 @@ public class MainActivity extends AppCompatActivity {
         Bitmap bitmap = BitmapFactory.decodeStream(stream);
 
         mFaces = mFaceOverlayView.setBitmap(bitmap);
-        mCropFaces = crop_face(bitmap,mFaces);
-        init_classifier();
-        final long startTime = SystemClock.uptimeMillis();
-
-        final float[] results = classifier.recognizeImage(mCropFaces[1]);
-        lastProcessingTimeMs = SystemClock.uptimeMillis() - startTime;
-
+        int face_num = mFaces.size();
+        mCropFaces = crop_face(bitmap, mFaces);
+        float[][] features = Extract_Features();
+        int i = 0;
     }
 
     public void init_classifier(){
@@ -81,12 +76,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public Bitmap[] crop_face(Bitmap bitmap , SparseArray<Face> mFaces){
-        int face_num = mFaces.size();
         double[] offset_pct = {0.2,0.2};
         int[] dest_sz = {100,130};
+        int face_num = mFaces.size();
         double distance;
         double reference;
         double scale;
+
         if (face_num>0){
             Bitmap[] crop_faces = new Bitmap[face_num];
             for( int i = 0; i < mFaces.size(); i++ ) {
@@ -121,5 +117,15 @@ public class MainActivity extends AppCompatActivity {
         else{
             return null;
         }
+    }
+
+    public float[][] Extract_Features() {
+        int face_num = mFaces.size();
+        init_classifier();
+        float[][] temp = new float[face_num][];
+        for (int i =0;i<face_num;i++) {
+            temp[i] = classifier.recognizeImage(mCropFaces[i]).clone();
+        }
+        return temp;
     }
 }
