@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="/home/gehen/tensorflow/tensorflow/examples/android/src/main/shaders"/></dataSet><dataSet config="debug"><source path="/home/gehen/tensorflow/tensorflow/examples/android/build-types/debug/shaders"/></dataSet></merger>
+<merger version="3"><dataSet config="main"><source path="/home/gehen/Recognize-Face-on-Android/tensorflow/examples/android/src/main/shaders"/></dataSet><dataSet config="debug"><source path="/home/gehen/Recognize-Face-on-Android/tensorflow/examples/android/build-types/debug/shaders"/></dataSet></merger>

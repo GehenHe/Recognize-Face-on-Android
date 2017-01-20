@@ -1,5 +1,9 @@
 [
     {
+        "merged": "/home/gehen/Recognize-Face-on-Android/tensorflow/examples/Recog_Face/app/gradleBuild/intermediates/res/merged/debug/raw/face.jpg",
+        "source": "/home/gehen/Recognize-Face-on-Android/tensorflow/examples/Recog_Face/app/src/main/res/raw/face.jpg"
+    },
+    {
         "merged": "/home/gehen/tensorflow/tensorflow/examples/Recog_Face/app/gradleBuild/intermediates/res/merged/debug/raw/face.jpg",
         "source": "/home/gehen/tensorflow/tensorflow/examples/Recog_Face/app/src/main/res/raw/face.jpg"
     }

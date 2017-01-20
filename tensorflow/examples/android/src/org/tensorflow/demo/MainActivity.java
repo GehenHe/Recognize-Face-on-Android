@@ -87,19 +87,8 @@ public class MainActivity extends AppCompatActivity {
         double distance;
         double reference;
         double scale;
-        int offset_h = (int)(offset_pct[0]*dest_sz[0]);
-        int offset_v = (int)(offset_pct[1]*dest_sz[1]);
         if (face_num>0){
             Bitmap[] crop_faces = new Bitmap[face_num];
-//            for (int i =0;i<face_num;i++){
-//                Face face = mFaces.valueAt(i);
-//                int left = (int) ( face.getPosition().x);
-//                int top = (int) ( face.getPosition().y);
-//                int right = (int) ( face.getPosition().x + face.getWidth() );
-//                int bottom = (int)( face.getPosition().y + face.getHeight() );
-//                crop_faces[i] = Bitmap.createBitmap(bitmap,left,top,right-left,bottom-top);
-//            }
-//            return crop_faces;
             for( int i = 0; i < mFaces.size(); i++ ) {
                 Face face = mFaces.valueAt(i);
                 int j = 0;
