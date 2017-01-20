@@ -2,20 +2,16 @@ package org.tensorflow.demo;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Matrix;
 import android.os.Bundle;
-import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
+import android.util.FloatProperty;
 import android.util.SparseArray;
-import android.view.View;
-
 import com.google.android.gms.vision.face.Face;
 import com.google.android.gms.vision.face.Landmark;
-
-import org.tensorflow.demo.env.BorderedText;
-
 import java.io.InputStream;
-import java.util.List;
+import java.util.ArrayList;
+import java.util.Arrays;
+
 
 /**
  * Created by gehen on 1/20/17.
@@ -51,10 +47,9 @@ public class MainActivity extends AppCompatActivity {
         Bitmap bitmap = BitmapFactory.decodeStream(stream);
 
         mFaces = mFaceOverlayView.setBitmap(bitmap);
-        int face_num = mFaces.size();
         mCropFaces = crop_face(bitmap, mFaces);
-        float[][] features = Extract_Features();
-        int i = 0;
+        ArrayList features = Extract_Features();
+        float[] temp = string2float(features.get(0).toString());
     }
 
     public void init_classifier(){
@@ -119,13 +114,34 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public float[][] Extract_Features() {
+    public ArrayList Extract_Features() {
         int face_num = mFaces.size();
         init_classifier();
-        float[][] temp = new float[face_num][];
+        ArrayList temp = new ArrayList();
         for (int i =0;i<face_num;i++) {
-            temp[i] = classifier.recognizeImage(mCropFaces[i]).clone();
+            temp.add(float2string(classifier.recognizeImage(mCropFaces[i]).clone()));
         }
         return temp;
     }
+
+    public StringBuilder float2string(float[] temp){
+        StringBuilder a = new StringBuilder();
+        for (int i=0;i<temp.length;i++){
+            a.append(Float.toString(temp[i]));
+            a.append(" ");
+        }
+        return a;
+    }
+
+    public float[] string2float(String temp){
+        String[] nums = temp.split(" ");
+        float[] values = new float[nums.length];
+        for (int i=0;i<nums.length;i++){
+            values[i] = Float.parseFloat(nums[i]);
+        }
+        return values;
+    }
+
+
+
 }
