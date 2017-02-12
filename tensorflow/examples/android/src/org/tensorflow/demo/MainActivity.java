@@ -1,16 +1,24 @@
 package org.tensorflow.demo;
 
+import android.Manifest;
+
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.FloatProperty;
+import android.util.Log;
 import android.util.SparseArray;
 import com.google.android.gms.vision.face.Face;
 import com.google.android.gms.vision.face.Landmark;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.util.ArrayList;
-import java.util.Arrays;
+
 
 
 /**
@@ -23,6 +31,11 @@ public class MainActivity extends AppCompatActivity {
     private SparseArray<Face> mFaces;
     private Bitmap[] mCropFaces;
 //    private int face_num;
+    private static final int REQUEST_EXTERNAL_STORAGE = 1;
+    private static String[] PERMISSIONS_STORAGE = {
+            Manifest.permission.READ_EXTERNAL_STORAGE,
+            Manifest.permission.WRITE_EXTERNAL_STORAGE
+    };
 
     private static final int NUM_CLASSES = 1001;
     private static final int INPUT_SIZE = 224;
@@ -48,8 +61,11 @@ public class MainActivity extends AppCompatActivity {
 
         mFaces = mFaceOverlayView.setBitmap(bitmap);
         mCropFaces = crop_face(bitmap, mFaces);
-        ArrayList features = Extract_Features();
-        float[] temp = string2float(features.get(0).toString());
+        ArrayList features = Extract_Features(mCropFaces);
+        String[] person_list = {"person_a","person_b","person_c","person_d","person_e","person_f"};
+        savetoFile(features,person_list);
+        loadfromfile();
+
     }
 
     public void init_classifier(){
@@ -114,12 +130,12 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public ArrayList Extract_Features() {
-        int face_num = mFaces.size();
+    public ArrayList Extract_Features(Bitmap[] cropFaces) {
+        int face_num =cropFaces.length;
         init_classifier();
         ArrayList temp = new ArrayList();
         for (int i =0;i<face_num;i++) {
-            temp.add(float2string(classifier.recognizeImage(mCropFaces[i]).clone()));
+            temp.add(float2string(classifier.recognizeImage(cropFaces[i]).clone()));
         }
         return temp;
     }
@@ -141,6 +157,68 @@ public class MainActivity extends AppCompatActivity {
         }
         return values;
     }
+
+    private void writeToFile(String data) {
+        try {
+            OutputStreamWriter outputStreamWriter = new OutputStreamWriter(openFileOutput("features.txt", Context.MODE_PRIVATE));
+            outputStreamWriter.write(data);
+            outputStreamWriter.close();
+        }
+        catch (IOException e) {
+            Log.e("Exception", "File write failed: " + e.toString());
+        }
+    }
+
+    private String readFromFile() {
+
+        String ret = "";
+
+        try {
+            InputStream inputStream = openFileInput("features.txt");
+
+            if ( inputStream != null ) {
+                InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
+                BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+                String receiveString = "";
+                StringBuilder stringBuilder = new StringBuilder();
+
+                while ( (receiveString = bufferedReader.readLine()) != null ) {
+                    stringBuilder.append(receiveString);
+                }
+
+                inputStream.close();
+                ret = stringBuilder.toString();
+            }
+        }
+        catch (FileNotFoundException e) {
+            Log.e("login activity", "File not found: " + e.toString());
+        } catch (IOException e) {
+            Log.e("login activity", "Can not read file: " + e.toString());
+        }
+
+        return ret;
+    }
+
+    private String savetoFile(ArrayList features, String[] person){
+        int num = person.length;
+        String add="";
+        for (int i=0;i<num;i++){
+            add += person[i]+" "+features.get(i).toString()+" | ";
+        }
+        writeToFile(add);
+        return add;
+    }
+
+    private ArrayList loadfromfile(){
+        ArrayList temp = new ArrayList();
+        String txt_data = readFromFile();
+        int num = txt_data.length();
+        int a = txt_data.indexOf("person_b");
+        String[] pp = txt_data.split(" ");
+        String[] aa = txt_data.split("\\s\\S\\s");
+        return temp;
+    }
+
 
 
 
