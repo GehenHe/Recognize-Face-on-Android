@@ -9,6 +9,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.util.SparseArray;
+
+import com.google.android.gms.drive.query.internal.MatchAllFilter;
 import com.google.android.gms.vision.face.Face;
 import com.google.android.gms.vision.face.Landmark;
 
@@ -33,17 +35,16 @@ public class MainActivity extends AppCompatActivity {
     private FaceOverlayView mFaceOverlayView;
     private SparseArray<Face> mFaces;
     private Bitmap[] mCropFaces;
-    private ArrayList ID_features;
-    private StringBuffer ID_persons;
-    private ArrayList Test_features;
-    private String[] Test_Persons;
-    private boolean SAVE_FLAG=true;
+    private ArrayList ID_features = new ArrayList();
+    private ArrayList ID_persons = new ArrayList();
+    private ArrayList Test_features = new ArrayList();
+    private ArrayList Test_Persons = new ArrayList();
+    private ArrayList Test_Scores = new ArrayList();
+    private boolean SAVE_FLAG=false;
     private boolean LOAD_FLAG=true;
-    private static final int REQUEST_EXTERNAL_STORAGE = 1;
-    private static String[] PERMISSIONS_STORAGE = {
-            Manifest.permission.READ_EXTERNAL_STORAGE,
-            Manifest.permission.WRITE_EXTERNAL_STORAGE
-    };
+    private double thresh = 0.9;
+
+//    };
 
     private static final int NUM_CLASSES = 1001;
     private static final int INPUT_SIZE = 224;
@@ -72,15 +73,19 @@ public class MainActivity extends AppCompatActivity {
         if (num>0){
             mCropFaces = crop_face(bitmap, mFaces);
             Test_features = Extract_Features(mCropFaces);
-            String[] temp = {"person_a","person_b","person_c","person_d","person_e","person_f"};
-            Test_Persons = temp;
+//            Test_Persons.add("person_a");
+//            Test_Persons.add("person_b");
+//            Test_Persons.add("person_c");
+//            Test_Persons.add("person_d");
+//            Test_Persons.add("person_e");
+//            Test_Persons.add("person_f");
         }
-        if (SAVE_FLAG==true)savetoFile(Test_features,Test_Persons);
-        if (LOAD_FLAG==true)loadfromfile();
+//        if (SAVE_FLAG==true)
+//            SavetoFile(Test_features,Test_Persons);
+        if (LOAD_FLAG==true)
+            Loadfromfile();
 
-//        savetoFile(features,person_list);
-//        loadfromfile();
-
+        CompareFeature();
     }
 
     public void init_classifier(){
@@ -214,17 +219,19 @@ public class MainActivity extends AppCompatActivity {
         return ret;
     }
 
-    private String savetoFile(ArrayList features, String[] person){
-        int num = person.length;
+    private String SavetoFile(ArrayList features, ArrayList person){
+        int num = person.size();
         String add="";
         for (int i=0;i<num;i++){
-            add += person[i]+" "+features.get(i).toString()+" | ";
+            add += person.get(i).toString()+" "+features.get(i).toString()+" | ";
         }
         writeToFile(add);
         return add;
     }
 
-    private ArrayList loadfromfile(){
+    public void Loadfromfile(){
+        ID_persons.clear();
+        ID_features.clear();
         ArrayList temp = new ArrayList();
         String txt_data = readFromFile();
         String[] features = txt_data.split("\\s\\S\\s");
@@ -232,10 +239,82 @@ public class MainActivity extends AppCompatActivity {
         for (int i=0;i<num;i++){
             temp.add(features[i]);
             String[] temp_split = features[i].split(" ",2);
-            ID_persons.append(temp_split[0];
+            ID_persons.add(temp_split[0]);
             ID_features.add(temp_split[1]);
         }
-        return temp;
+    }
+
+    public void CompareFeature(){
+//        Test_features.clear();
+//        Test_Scores.clear();
+//        Test_Persons.clear();
+        int test_num = Test_features.size();
+        float[][] test_features = new float[test_num][];
+        for (int i=0;i<test_num;i++){
+            test_features[i] = string2float(Test_features.get(i).toString());
+        }
+        int id_num = ID_features.size();
+        float[][] id_features = new float[id_num][];
+        for (int i=0;i<id_num;i++){
+            id_features[i] = string2float(ID_features.get(i).toString());
+        }
+        for (int i=0;i<test_num;i++){
+            double[] score = new double[id_num];
+            for (int j=0;j<id_num;j++){
+                score[j] = cos_dist(test_features[i],id_features[j]);
+            }
+            int index = max_index(score);
+            if (score[index]>thresh){
+                Test_Persons.add(ID_persons.get(index).toString());
+                Test_Scores.add(Float.toString((float)score[index]));
+            }
+            else
+                Test_Persons.add("unknown");
+        }
+    }
+
+
+
+    public int max_index(double[] data){
+        double max = 0;
+        int index = 0;
+        int num = data.length;
+        for(int i=0;i<num;i++){
+            if(data[i]>max) {
+                max = data[i];
+                index = i;
+            }
+        }
+        return index;
+    }
+
+    public float E_dist(float[] a,float[] b){
+        double sum = 0;
+        int num = a.length;
+        for (int i=0;i<num;i++){
+            sum+=(a[i]-b[i])*(a[i]-b[i]);
+        }
+        return (float)Math.sqrt(sum);
+    }
+
+    public double cos_dist(float[] a,float[] b){
+        double dist = 0;
+        int num = a.length;
+        double sum = 0;
+        for (int i=0;i<num;i++){
+            sum+=a[i]*b[i];
+        }
+        dist = Math.abs(sum)/(norm(a)*norm(b));
+        return dist;
+    }
+
+    public double norm(float[] a){
+        int num = a.length;
+        double sum = 0;
+        for (int i=0;i<num;i++){
+            sum+=a[i]*a[i];
+        }
+        return Math.sqrt(sum);
     }
 
 
