@@ -71,17 +71,18 @@ public class MainActivity extends AppCompatActivity {
         mFaces = mFaceOverlayView.setBitmap(bitmap);
         int num = mFaces.size();
         if (num>0){
+            Test_features.clear();
             mCropFaces = crop_face(bitmap, mFaces);
             Test_features = Extract_Features(mCropFaces);
-//            Test_Persons.add("person_a");
-//            Test_Persons.add("person_b");
-//            Test_Persons.add("person_c");
-//            Test_Persons.add("person_d");
+            Test_Persons.add("person_a");
+            Test_Persons.add("person_b");
+            Test_Persons.add("person_c");
+            Test_Persons.add("person_d");
 //            Test_Persons.add("person_e");
 //            Test_Persons.add("person_f");
         }
 //        if (SAVE_FLAG==true)
-//            SavetoFile(Test_features,Test_Persons);
+            SavetoFile(Test_features,Test_Persons);
         if (LOAD_FLAG==true)
             Loadfromfile();
 
@@ -245,9 +246,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void CompareFeature(){
-//        Test_features.clear();
-//        Test_Scores.clear();
-//        Test_Persons.clear();
+        Test_Scores.clear();
+        Test_Persons.clear();
         int test_num = Test_features.size();
         float[][] test_features = new float[test_num][];
         for (int i=0;i<test_num;i++){
@@ -268,9 +268,12 @@ public class MainActivity extends AppCompatActivity {
                 Test_Persons.add(ID_persons.get(index).toString());
                 Test_Scores.add(Float.toString((float)score[index]));
             }
-            else
+            else{
                 Test_Persons.add("unknown");
+                Test_Scores.add(Float.toString((float)score[index]));
+            }
         }
+        int a = 0;
     }
 
 
