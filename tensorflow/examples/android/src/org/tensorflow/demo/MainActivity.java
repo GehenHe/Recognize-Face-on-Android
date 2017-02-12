@@ -11,6 +11,9 @@ import android.util.Log;
 import android.util.SparseArray;
 import com.google.android.gms.vision.face.Face;
 import com.google.android.gms.vision.face.Landmark;
+
+import junit.framework.Test;
+
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -30,7 +33,12 @@ public class MainActivity extends AppCompatActivity {
     private FaceOverlayView mFaceOverlayView;
     private SparseArray<Face> mFaces;
     private Bitmap[] mCropFaces;
-//    private int face_num;
+    private ArrayList ID_features;
+    private StringBuffer ID_persons;
+    private ArrayList Test_features;
+    private String[] Test_Persons;
+    private boolean SAVE_FLAG=true;
+    private boolean LOAD_FLAG=true;
     private static final int REQUEST_EXTERNAL_STORAGE = 1;
     private static String[] PERMISSIONS_STORAGE = {
             Manifest.permission.READ_EXTERNAL_STORAGE,
@@ -60,11 +68,18 @@ public class MainActivity extends AppCompatActivity {
         Bitmap bitmap = BitmapFactory.decodeStream(stream);
 
         mFaces = mFaceOverlayView.setBitmap(bitmap);
-        mCropFaces = crop_face(bitmap, mFaces);
-        ArrayList features = Extract_Features(mCropFaces);
-        String[] person_list = {"person_a","person_b","person_c","person_d","person_e","person_f"};
-        savetoFile(features,person_list);
-        loadfromfile();
+        int num = mFaces.size();
+        if (num>0){
+            mCropFaces = crop_face(bitmap, mFaces);
+            Test_features = Extract_Features(mCropFaces);
+            String[] temp = {"person_a","person_b","person_c","person_d","person_e","person_f"};
+            Test_Persons = temp;
+        }
+        if (SAVE_FLAG==true)savetoFile(Test_features,Test_Persons);
+        if (LOAD_FLAG==true)loadfromfile();
+
+//        savetoFile(features,person_list);
+//        loadfromfile();
 
     }
 
@@ -212,10 +227,14 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList loadfromfile(){
         ArrayList temp = new ArrayList();
         String txt_data = readFromFile();
-        int num = txt_data.length();
-        int a = txt_data.indexOf("person_b");
-        String[] pp = txt_data.split(" ");
-        String[] aa = txt_data.split("\\s\\S\\s");
+        String[] features = txt_data.split("\\s\\S\\s");
+        int num = features.length;
+        for (int i=0;i<num;i++){
+            temp.add(features[i]);
+            String[] temp_split = features[i].split(" ",2);
+            ID_persons.append(temp_split[0];
+            ID_features.add(temp_split[1]);
+        }
         return temp;
     }
 
