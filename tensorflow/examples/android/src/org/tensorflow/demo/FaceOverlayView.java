@@ -16,6 +16,8 @@ import com.google.android.gms.vision.face.Face;
 import com.google.android.gms.vision.face.FaceDetector;
 import com.google.android.gms.vision.face.Landmark;
 
+import java.util.ArrayList;
+
 /**
  * Created by gehen on 1/18/17.
  */
@@ -63,6 +65,7 @@ public class FaceOverlayView extends View {
             drawFaceBox(canvas, scale);
 //            drawFaceLandmarks(canvas,scale);
             drawCropFaces(canvas,scale);
+
         }
     }
 
@@ -82,18 +85,30 @@ public class FaceOverlayView extends View {
         Bitmap[] cropfaces = crop_face(mBitmap,mFaces);
         double imageWidth = mBitmap.getWidth();
         double imageHeight = mBitmap.getHeight();
-        double crop_width = cropfaces[1].getWidth();
-        double crop_height = cropfaces[1].getHeight();
-        int width = (int)(crop_height+40);
-        int height = (int)(crop_height+40);
+        double crop_width = cropfaces[1].getWidth()*2;
+        double crop_height = cropfaces[1].getHeight()*2;
+        int width = (int)(crop_height+60);
+        int height = (int)(crop_height+120);
         int num = cropfaces.length;
+        MainActivity mainActivity = new MainActivity();
+        ArrayList name_list = mainActivity.Test_Persons;
+        ArrayList score_list = mainActivity.Test_Scores;
+        Paint mPaint = new Paint();
+        mPaint.setStrokeWidth(3);
+        mPaint.setTextSize(40);
+        mPaint.setColor(Color.RED);
+        mPaint.setTextAlign(Paint.Align.LEFT);
 
         for(int i=0;i<num;i++){
             int x = (i%3*width);
-            int y = (int)(i/3*height+imageHeight*scale);
+            int y = (int)(i/3*height+imageHeight*scale+40);
             Rect destBounds = new Rect(x, y, (int)(crop_width * scale+x), (int)(crop_height * scale+y));
             canvas.drawBitmap(cropfaces[i],null,destBounds,null);
+            canvas.drawText(name_list.get(i).toString(),x,y, mPaint);
         }
+
+
+
     }
 
     private void drawFaceBox(Canvas canvas, double scale) {

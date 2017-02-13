@@ -38,11 +38,11 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList ID_features = new ArrayList();
     private ArrayList ID_persons = new ArrayList();
     private ArrayList Test_features = new ArrayList();
-    private ArrayList Test_Persons = new ArrayList();
-    private ArrayList Test_Scores = new ArrayList();
+    public static ArrayList Test_Persons = new ArrayList();
+    public static ArrayList Test_Scores = new ArrayList();
     private boolean SAVE_FLAG=false;
     private boolean LOAD_FLAG=true;
-    private double thresh = 0.9;
+    private double thresh = 0.99;
 
 //    };
 
@@ -78,14 +78,12 @@ public class MainActivity extends AppCompatActivity {
             Test_Persons.add("person_b");
             Test_Persons.add("person_c");
             Test_Persons.add("person_d");
-//            Test_Persons.add("person_e");
-//            Test_Persons.add("person_f");
+
         }
-//        if (SAVE_FLAG==true)
+        if (SAVE_FLAG==true)
             SavetoFile(Test_features,Test_Persons);
         if (LOAD_FLAG==true)
             Loadfromfile();
-
         CompareFeature();
     }
 
@@ -273,7 +271,6 @@ public class MainActivity extends AppCompatActivity {
                 Test_Scores.add(Float.toString((float)score[index]));
             }
         }
-        int a = 0;
     }
 
 
@@ -319,8 +316,4 @@ public class MainActivity extends AppCompatActivity {
         }
         return Math.sqrt(sum);
     }
-
-
-
-
 }
