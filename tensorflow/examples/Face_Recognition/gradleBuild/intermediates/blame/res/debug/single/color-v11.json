@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/home/gehen/Recognize-Face-on-Android/tensorflow/examples/android/gradleBuild/intermediates/res/merged/debug/color-v11/abc_background_cache_hint_selector_material_light.xml",
+        "source": "/home/gehen/Recognize-Face-on-Android/tensorflow/examples/android/gradleBuild/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.1/res/color-v11/abc_background_cache_hint_selector_material_light.xml"
+    },
+    {
+        "merged": "/home/gehen/Recognize-Face-on-Android/tensorflow/examples/android/gradleBuild/intermediates/res/merged/debug/color-v11/abc_background_cache_hint_selector_material_dark.xml",
+        "source": "/home/gehen/Recognize-Face-on-Android/tensorflow/examples/android/gradleBuild/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.1/res/color-v11/abc_background_cache_hint_selector_material_dark.xml"
+    }
+]

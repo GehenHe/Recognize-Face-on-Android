@@ -1,2 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="/home/gehen/tensorflow/tensorflow/examples/android/libs"><file name="armeabi-v7a/libtensorflow_demo.so" path="/home/gehen/tensorflow/tensorflow/examples/android/libs/armeabi-v7a/libtensorflow_demo.so"/></source></dataSet><dataSet config="debug"><source path="/home/gehen/tensorflow/tensorflow/examples/android/build-types/debug/jniLibs"/></dataSet></merger>
